@@ -89,14 +89,8 @@ class WeCoder_Academy
      */
     public function activate()
     {
-        // installed time
-        $installed = get_option('wc_academy_installed');
-        if (!$installed) {
-            update_option('wc_academy_installed', time());
-        }
-
-        // update version
-        update_option('wc_academy_version', WC_ACADEMY_VERSION);
+        $installer = new Wecoder\Academy\Installer();
+        $installer->run();
     }
 
 } // class end

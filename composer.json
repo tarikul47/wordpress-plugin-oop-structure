@@ -7,7 +7,9 @@
     "psr-4": {
       "Wecoder\\Academy\\": "includes/"
     },
-    "files": []
+    "files": [
+      "includes/functions.php"
+    ]
   },
   "authors": [
     {

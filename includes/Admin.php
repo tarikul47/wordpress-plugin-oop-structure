@@ -11,18 +11,18 @@ class Admin
      */
     public function __construct()
     {
-        $this->dispatch_actions();
-        new Admin\Menu();
+        $addressbook = new Admin\Addressbook();
+        $this->dispatch_actions($addressbook);
+        new Admin\Menu($addressbook);
     }
 
     /**
-     * Utility Function bind with admin init 
+     * Utility Function bind with admin init
      *
      * @return void
      */
-    public function dispatch_actions()
+    public function dispatch_actions($addressbook)
     {
-        $addressbook = new Admin\Addressbook();
         add_action('admin_init', [$addressbook, 'form_handler']);
     }
 }

@@ -1,6 +1,8 @@
 <div class="wrap">
     <h1 class="wp-heading-inline"><?php _e('New Address Book', 'wecoder-academy');?></h1>
 
+    <?php var_dump($this->errors);?>
+
     <form action="" method="post">
         <table class="form-table">
             <tbody>
@@ -31,7 +33,7 @@
             </tbody>
         </table>
         <?php wp_nonce_field('new-address')?>
-        <?php submit_button(__('Add Address','wecoder_academy'),'primary','submit_address',)?>
+        <?php submit_button(__('Add Address', 'wecoder_academy'), 'primary', 'submit_address', )?>
     </form>
 
 </div>
