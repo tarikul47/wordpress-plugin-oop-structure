@@ -75,6 +75,8 @@ class WeCoder_Academy
      */
     public function init_plugin()
     {
+        new \Wecoder\Academy\Assets();
+        
         if (is_admin()) {
             new Wecoder\Academy\Admin();
         } else {
