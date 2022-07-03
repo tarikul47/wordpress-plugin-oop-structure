@@ -21,6 +21,11 @@ class Assets
                 'version' => filemtime(WC_ACADEMY_PATH . '/assets/js/frontend.js'),
                 'deps' => ['jquery'],
             ],
+            'academy-enquiry-script' => [
+                'src' => WC_ACADEMY_ASSETS . '/js/enquiry.js',
+                'version' => filemtime(WC_ACADEMY_PATH . '/assets/js/enquiry.js'),
+                'deps' => ['jquery'],
+            ],
         ];
     }
 
@@ -30,9 +35,13 @@ class Assets
             'new-style' => [
                 'src' => WC_ACADEMY_ASSETS . '/css/frontend.css',
                 'version' => filemtime(WC_ACADEMY_PATH . '/assets/css/frontend.css'),
-            ], 
+            ],
             'admin-menu-style' => [
                 'src' => WC_ACADEMY_ASSETS . '/css/admin.css',
+                'version' => filemtime(WC_ACADEMY_PATH . '/assets/css/admin.css'),
+            ],
+            'academy-enquiry-style' => [
+                'src' => WC_ACADEMY_ASSETS . '/css/enquiry.css',
                 'version' => filemtime(WC_ACADEMY_PATH . '/assets/css/admin.css'),
             ],
         ];
@@ -49,5 +58,10 @@ class Assets
         foreach ($styles as $handle => $style) {
             wp_register_style($handle, $style['src'], false, $style['version']);
         }
+
+        wp_localize_script('academy-enquiry-script', 'wecoderAcademy', [
+            'ajaxurl' => admin_url('admin-ajax.php'),
+            'error' => __('Something wrong error', 'wecoder-academy'),
+        ]);
     }
 }

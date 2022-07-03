@@ -76,7 +76,11 @@ class WeCoder_Academy
     public function init_plugin()
     {
         new \Wecoder\Academy\Assets();
-        
+
+        if (defined('DOING_AJAX') && DOING_AJAX) {
+            new Wecoder\Academy\Ajax();
+        }
+
         if (is_admin()) {
             new Wecoder\Academy\Admin();
         } else {
